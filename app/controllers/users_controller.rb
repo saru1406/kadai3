@@ -3,9 +3,12 @@ class UsersController < ApplicationController
   end
 
   def show
+   @books = @user.post_images   
   end
   
   def index
+    @users = User.all
+    
   end
   
 end
