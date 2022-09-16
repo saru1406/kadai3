@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   end
 
   def show
-   @books = @user.post_images   
+    @user = User.find(params[:id]) 
+    @books = @user.books  
   end
   
   def index
