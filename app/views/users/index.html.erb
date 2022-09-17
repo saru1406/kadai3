@@ -6,11 +6,22 @@
 
 
 
-       <%= image_tag 'no_image.jpg' %>
+       <%= image_tag @user.get_profile_image(100,100) %>
+       <table class="table">
+  　　 　<tbody><tr></tr>
+       <tr>
+	     <th>name</th>
+	     <th><%= @user.name %></th>
+       </tr>
+       <tr>
+	     <th>introduction</th>
+	     <th><%= @user.introduction %></th>
+       </tr>
+       </tbody></table>
 
-       <a class="btn btn-outline-secondary btn-block " href="/users/:id/edit">
+     <%= link_to edit_user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
     <i class="fas fa-user-cog"></i>
-     </a>
+     <% end %>
       <h2>New book</h2>
      <%= form_with model: @book do |f| %>
       <p>Title</p>
@@ -35,7 +46,7 @@
   <% @users.each do |user| %>
   <tbody>
   <tr>
-    <td></td>
+    <td><%= image_tag user.get_profile_image(100,100) %></td>
     <td><%= user.name %></td>
     <td><%= link_to "Show", "/users/#{user.id}" %></td>
 
@@ -47,3 +58,4 @@
   </div>
 </div>
 </main>
+

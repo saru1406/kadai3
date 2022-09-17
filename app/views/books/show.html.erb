@@ -7,13 +7,23 @@
 
 
        <%= image_tag @book.user.get_profile_image(100,100) %>
+       <table class="table">
+  　　 　<tbody><tr></tr>
+       <tr>
+	     <th>name</th>
+	     <th><%= @book.user.name %></th>
+       </tr>
+       <tr>
+	     <th>introduction</th>
+	     <th><%= @book.user.introduction %></th>
+       </tr>
+       </tbody></table>
+
+       <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+     <% end %>
        
-       <a><div class="btn btn-outline-secondary btn-block" >
-       <%= link_to "/users/:id/edit" do %>
-       <i class="fas fa-user-cog"></i>
-       <% end %>
-       </a>
-     </div>
+     
       <h2>New book</h2>
      <%= form_with model: @book do |f| %>
       <p>Title</p>
@@ -35,8 +45,8 @@
 
   <tbody>
   <tr>
-    <td><a><%= image_tag @book.user.get_profile_image(100,100) %><br>
-    <%= @book.user.name %><a></td>
+    <td><%= image_tag @book.user.get_profile_image(100,100) %><br>
+    <a><%= link_to @book.user.name ,user_path(@user) %><a></td>
     <td><%= @book.title %></td>
     <td><%= @book.body %></td>
     <% if @book.user == current_user %>

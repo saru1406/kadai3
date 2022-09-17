@@ -7,14 +7,10 @@
   <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
 
 <div class="field">
-
   <p>Title</p>
   <%= f.text_field :title ,size: "60" %>
-
-
   <p>Opinion</p>
   <%= f.text_area :body ,size: "63" %>
-
 </div>
 
 <input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
