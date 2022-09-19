@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-   root to:"homes#top",as:'top'
-  devise_for :users
+   root to:"homes#top"
+  devise_for :users,controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+  }
 
   get '/home/about'=>'homes#about',as:'about'
   patch 'books/:id'=>'books#update', as: 'update_book'

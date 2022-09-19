@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html>
+  
   <head>
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -43,7 +45,7 @@
           </li>
           <% else %>
           <li>
-            <%= link_to top_path , class:"nav-link text-light" do %>
+            <%= link_to root_path , class:"nav-link text-light" do %>
               <i class="fas fa-home"></i>   Home
             <% end %>
             </li>
@@ -67,6 +69,9 @@
       </div>
     </div>
   </nav>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
 </header>
     <%= yield %>
   </body>
